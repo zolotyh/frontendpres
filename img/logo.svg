@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="270px" height="180px" viewBox="0 0 270 180" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 41 (35326) - http://www.bohemiancoding.com/sketch -->
+    <title>Group 2</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group-2">
+            <rect id="Rectangle" fill="#424B55" x="0" y="0" width="270" height="180"></rect>
+            <g id="wrike-logo" transform="translate(102.000000, 78.000000)">
+                <g id="Group">
+                    <path d="M5.7,22 L0,5 L4,5 L7.4,16.5 L11.2,5 L14,5 L17.7,16.5 L21.2,5 L25,5 L19.3,22 L16.3,22 L12.4,11 L8.8,22 L5.7,22 Z M25.3,22 L25.3,10 L28.7,10 L28.7,12.7 C29.7,9.7 33.3,10 33.3,10 L33.3,13.4 C33.3,13.4 28.7,13 28.7,16.8 L28.7,22 L25.3,22 L25.3,22 Z M34.9,22 L34.9,14.6 L38.2,11.4 L38.2,22 L34.9,22 Z M41,22 L41,8.8 L44.5,5.4 L44.5,14.4 L48.7,10.1 L53,10.1 L47.6,15.6 L53.6,22.2 L49.3,22.2 L44.5,17.2 L44.5,22.2 L41,22 Z" id="Shape" fill="#FEFEFE"></path>
+                    <path d="M61.6,14.7 C61.6,13.4 60.6,12.3 59.1,12.3 C57.6,12.3 56.6,13.3 56.4,14.7 L61.7,14.7 L61.6,14.7 Z M55,20.5 C53.6,19.5 53,17.8 53,16 C53,14.2 53.6,12.7 54.7,11.5 C55.9,10.3 57.4,9.7 59.2,9.7 C61,9.7 62.2,10.3 63.2,11.5 C64.4,12.8 64.9,14.2 64.9,16 L64.9,17 L56.2,17 C56.6,18.5 58.2,19.4 60.2,19.4 C61.6,19.4 62.8,19 64.2,18.4 L64.2,21 C63,21.8 61.5,22.2 59.5,22.2 C57.7,22.2 56.1,21.7 54.8,20.5 L55,20.5 Z" id="Shape" fill="#FEFEFE"></path>
+                    <polyline id="Shape" fill="#00A550" points="41.8 1 34.2 8.6 36.4 10.9 46.4 0.9"></polyline>
+                    <polyline id="Shape" fill="#A5CE38" points="35 5 30.5 5 36.5 11 38.7 8.6"></polyline>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

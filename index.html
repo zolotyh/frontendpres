@@ -1,0 +1,696 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>Angular 2</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Anonymous+Pro:400,400i,700,700i&amp;subset=cyrillic"
+          rel="stylesheet">
+
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/white.css">
+
+
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+
+    <!-- Printing and PDF exports -->
+    <script>
+        var link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
+        document.getElementsByTagName('head')[0].appendChild(link);
+    </script>
+</head>
+<body>
+<div class="reveal">
+    <div class="slides">
+        <section>
+            <h2>Angular 2</h2>
+            <p>Алексей Золотых</p>
+            <p>twitter: @zolotyh</p>
+            <p>email: aazolotyh@gmail.com</p>
+        </section>
+        <section data-background-image="img/logo.svg">
+            <br/>
+        </section>
+        <section data-background-image="img/screen.png">
+            <br/>
+        </section>
+        <section>Очень большая и очень страрая кодовая база</section>
+        <section>
+            <h2>FAQ</h2>
+            <ul>
+                <li class="fragment">
+                    Да, мы используем Angular 2 в бою!
+                </li>
+                <li class="fragment">
+                    Да, мы пишем на Dart и нам очень нравится!
+                </li>
+                <li class="fragment">
+                    Нет, Dart не загнулся!
+                </li>
+            </ul>
+        </section>
+        <section>
+            <h2>20 октября 2010 года</h2>
+        </section>
+        <section>
+            <ol>
+                <li>
+                    Постановление Правительства РФ от 20.10.2010 N 848 "О внесении изменений в Постановление
+                    Правительства Российской Федерации от 1 декабря 2009 г. N 982"
+                </li>
+                <li class="fragment">
+                    Первый релиз AngularJS
+                </li>
+            </ol>
+        </section>
+        <section>
+            <pre><code class="line-numbers" data-noescape>&#x3C;input type=&#x22;text&#x22; ng-model=&#x22;yourName&#x22; &#x3E;
+&#x3C;h1&#x3E;Hello {{yourName}}!&#x3C;/h1&#x3E;</code></pre>
+        </section>
+        <section>
+            <pre><code class="line-numbers">&lt;input type=&quot;text&quot;&gt;
+&lt;p&gt;Hello&lt;/p&gt;
+
+&lt;script&gt;
+$(function() {
+  var $input = $('input'),
+      $p = $('p'),
+      startValue = $p.text();
+
+  $input.on('keyup', function(){
+    $p.text(`${startValue} ${$input.val()}`)
+  })
+});
+&lt;/script&gt;
+</code></pre>
+        </section>
+        <section style="text-align: left">
+            <p>
+                &mdash; Чудо?
+            </p>
+            <p>
+                &mdash; Безусловно!
+            </p>
+            <p>
+                &mdash; За все нужно платить!
+            </p>
+        </section>
+        <section>
+            <h3>$scope и $digest цикл</h3>
+            <aside class="notes">
+                <ul>
+                    <li>
+                        Дайджетст цикл и 2-way биндинг это то, что за что выбирали AngularJS
+                    </li>
+                    <li>
+                        Мы верим в чудо и нам нравится чувство, которое дает чудо
+                    </li>
+                </ul>
+            </aside>
+        </section>
+        <section data-background-color="#000000" data-background-image="img/2.jpg">
+            <h3>Страдают все!</h3>
+        </section>
+        <section data-background-color="#ffffff" data-background-image="img/a1.svg">
+            <br/>
+        </section>
+        <section>
+            <p>Думаете проблема только в производительности!?</p>
+        </section>
+        <section>
+            <img src="img/a3.png" alt="">
+        </section>
+        <section>
+            <img src="img/mvc.png" alt="">
+        </section>
+        <section>
+            <img src="img/flux.png" alt="">
+        </section>
+        <section data-background-image="img/fp.gif"></section>
+        <section>
+            <section>
+                <h2>Пример</h2>
+                <a href="https://goo.gl/PPOrXW">https://goo.gl/PPOrXW</a>
+            </section>
+            <section>
+            <pre><code class="line-numbers">import Workout from &quot;../../Components/WorkoutComponent/WorkoutComponent&quot;;
+import Token from &quot;../../getCSRFToken&quot;;
+import animation from &quot;css-animation&quot;;
+
+class WorkoutContainer extends React.Component {
+  constructor() {
+    super();
+    this.handleDeletingWorkoutItem = this.handleDeletingWorkoutItem.bind(this);
+    this.toggleItemFullData = this.toggleItemFullData.bind(this);
+    this.state = {
+      workoutName: &quot;&quot;,
+      workoutData: []
+    };
+  }
+
+  componentWillMount() {
+    this.props.getParentRoute(&quot;/app&quot;);
+  }
+
+  componentDidMount() {
+    this.loadWorkoutData();
+  }
+
+  componentWillUpdate(nextProps, nextState) {
+    if (this.state.workoutName !== nextState.workoutName) {
+      this.props.getRouteName(nextState.workoutName);
+    }
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if (this.props.params.id !== nextProps.params.id) this.fetchData(nextProps.params.id);
+  }
+
+  loadWorkoutData() {
+    this.props.setFethingData(true);
+    this.fetchData(this.props.params.id);
+  }
+
+  fetchData(id) {
+    fetch(`/api/v1/workout/training/${id}`)
+      .then(data =&gt; {
+        this.props.setFethingData(false);
+        if (data.status === 404) throw Error(404);
+        return data.json();
+      })
+      .then(data =&gt; {
+        this.setState({
+          workoutName: data.title,
+          workoutData: data.exercises.sort((a,b) =&gt; b.priority - a.priority)
+        });
+      })
+      .catch (error =&gt; {
+        if (error.message === &quot;404&quot;) this.props.checkIsPageExist(false);
+      });
+  }
+
+  handleDeletingWorkoutItem(itemId) {
+    return () =&gt; {
+      const confirmDeleting = confirm(&quot;Вы действительно хотите удалить уражнение?&quot;);
+      if (confirmDeleting) {
+        fetch(`/api/v1/workout/exercise/${itemId}`, {
+          credentials: &quot;include&quot;,
+          method: &quot;DELETE&quot;,
+          headers: {
+            &quot;Content-Type&quot;: &quot;application/json&quot;,
+            &quot;X-CSRFToken&quot;: Token
+          }
+        })
+        .then(data =&gt; {
+          if (data.status === 204) {
+            const newState = this.state.workoutData.filter(session =&gt; !(session.url === data.url));
+            this.setState({
+              workoutData: newState
+            });
+          }
+        });
+      }
+    };
+  }
+
+  toggleItemFullData(e) {
+    const allFullDataItems = [...document.querySelectorAll(&quot;.workout-item__wrapper&quot;)];
+    allFullDataItems.forEach(item =&gt; {
+      const isItemFullDataClose = item.classList.contains(&quot;workout-item__wrapper_closed&quot;);
+      if (e.target.nextSibling === item) this.animateFullData(e.target.nextSibling, !isItemFullDataClose);
+      else if (!isItemFullDataClose) this.animateFullData(item, true);
+    });
+  }
+
+  animateFullData(item, isShown) {
+    let height;
+    item.classList.toggle(&quot;workout-item__wrapper_closed&quot;);
+
+    animation(item, &quot;collapse&quot;, {
+      start() {
+        const itemHeight = `${item.offsetHeight}px`;
+        if (!isShown) {
+          item.style.height = &quot;&quot;;
+          height = item.offsetHeight;
+        }
+        item.style.height = itemHeight;
+      },
+      active() {
+        item.style.height = `${isShown ? 0 : height}px`;
+      },
+      end() {
+        if (!isShown) item.style.height = &quot;&quot;;
+      }
+    });
+  }
+
+  render() {
+    return (
+      &lt;Workout
+        workoutData={this.state.workoutData}
+        toggleItemFullData={this.toggleItemFullData}
+        sessionId={this.props.params.id}
+        deleteItem={this.handleDeletingWorkoutItem}
+      /&gt;
+    );
+  }
+}
+
+export default WorkoutContainer;</code></pre>
+            </section>
+        </section>
+        <section>
+            <p>
+                Выбор MVC или FLUX не очень-то и влияет на качество кода!
+            </p>
+        </section>
+        <section data-background-color="#000000" data-background-image="img/edsger_dijkstra.jpg">
+            <blockquote cite="">
+                <p style="text-align: left">
+                    Я опасаюсь,
+                    что мы потерпели
+                    поражение в борьбе
+                    со сложностью
+                    систем
+                </p>
+                <p style="text-align: right">&mdash; Эдсгер Вибе Дейкстра</p>
+            </blockquote>
+        </section>
+        <section style="text-align: left">
+            <p>&mdash; Что сделано в Angular2 чтобы помочь разработчикам?</p>
+            <p class="fragment">&mdash; Давайте сравним!</p>
+        </section>
+        <section data-background-image="img/vs.svg"></section>
+        <section>
+            <h4>
+                AngularJS vs Angular2
+            </h4>
+            <ul>
+                <li class="fragment">
+                    Прощай $scope и $digest цикл!
+                </li>
+                <li class="fragment">
+                    Больше не будет контроллеров
+                </li>
+                <li class="fragment">
+                    Компонентный подход
+                </li>
+                <li class="fragment">
+                    Однонаправленный поток данных
+                </li>
+                <li class="fragment">
+                    ES6, Dart, Typescript
+                </li>
+                <li class="fragment">
+                    Dependency Injection
+                </li>
+                <li class="fragment">
+                    Можно прикрутить Redux, MobX, RxJS
+                </li>
+            </ul>
+        </section>
+        <section>
+            <p>
+                Анатомия для компонента
+            </p>
+        </section>
+        <section data-transition="none">
+            <img style="border: none; box-shadow: none" src="img/9.svg" alt="">
+        </section>
+        <section>
+            <p>Декораторы</p>
+            <pre><code class="line-numbers" data-noescape>function superhero(target) {
+        target.isSuperhero = true;
+        target.power = 'flight';
+        }
+
+@superhero
+class MySuperHero {}
+
+console.log(MySuperHero.isSuperhero);</code></pre>
+        </section>
+        <section data-transition="none">
+            <img style="border: none; box-shadow: none" src="img/10.svg" alt="">
+        </section>
+        <section data-transition="none">
+            <img style="border: none; box-shadow: none" src="img/11.svg" alt="">
+        </section>
+        <section data-transition="none">
+            <img style="border: none; box-shadow: none" src="img/12.svg" alt="">
+        </section>
+        <section data-transition="none">
+            <img style="border: none; box-shadow: none" src="img/13.svg" alt="">
+        </section>
+        <section>
+            <img style="border: none; box-shadow: none" src="img/mockup.png" alt="">
+            <p class="fragment">&lt;widget /&gt;</p>
+        </section>
+        <section>
+            <h2>
+                Готовый код
+            </h2>
+            <a href="https://goo.gl/jN1DyA">https://goo.gl/jN1DyA</a>
+        </section>
+        <section>
+            <img style="border: none; box-shadow: none" src="img/14.svg" alt="">
+            <p>&lt;widget /&gt;</p>
+        </section>
+        <section>
+            <ul style="display: block; text-align: left">
+                <li>index.html</li>
+                <li>Map.ts</li>
+                <li>TabBar.ts</li>
+                <li>Country.ts</li>
+                <li>Widget.ts</li>
+            </ul>
+        </section>
+        <section>
+            <p>Модель для страны Country.ts</p>
+            <pre><code class="line-numbers" data-noescape>export class Country {
+  constructor(
+    public id: string,
+    public label: string,
+    public coords: string) { }
+}</code></pre>
+        </section>
+        <section>
+            <p>Код для виджета Widget.ts</p>
+            <pre><code class="line-numbers" data-noescape>@Component({
+  selector: 'widget',
+  template: `&lt;tab-bar [data]=&quot;list&quot;
+                      (onTabSelect)=&quot;select($event)&quot;&gt;&lt;/tab-bar&gt;
+             &lt;map [item]=&quot;country&quot;&gt;&lt;/map&gt;`,
+  directives: [TabBar, StaticMap]
+})
+export class Widget {
+  list: Country[] = countries;
+  country: Country = new Country();
+
+  select(c:Country) {
+    this.country = c;
+  }
+}</code></pre>
+        </section>
+        <section data-transition="none">
+            <img style="border: none; box-shadow: none" src="img/14.png" alt="">
+        </section>
+        <section data-transition="none">
+            <img style="border: none; box-shadow: none" src="img/15.png" alt="">
+        </section>
+        <section data-transition="none">
+            <img style="border: none; box-shadow: none" src="img/16.png" alt="">
+        </section>
+        <section data-transition="none">
+            <img style="border: none; box-shadow: none" src="img/17.png" alt="">
+        </section>
+        <section data-transition="none">
+            <img style="border: none; box-shadow: none" src="img/18.png" alt="">
+        </section>
+        <section data-transition="none">
+            <img style="border: none; box-shadow: none" src="img/19.png" alt="">
+        </section>
+        <section data-transition="none">
+            <img style="border: none; box-shadow: none" src="img/20.png" alt="">
+            <p>
+                &lt;map [item]=&quot;country&quot;&gt;
+            </p>
+        </section>
+        <section>
+            <p>Код для Map.ts</p>
+            <pre><code class="line-numbers" data-noescape>@Component({
+  selector: 'map',
+  template: `
+  &lt;img *ngIf=&quot;item.coords&quot;
+    src=&quot;https://maps.googleapis.com/maps/api/staticmap
+    ?center={{item.coords}}
+    &amp;zoom=5&amp;size=400x400&amp;
+    key=AIzaSyBAyMH-A99yD5fHQPz7uzqk8glNJYGEqus&quot; /&gt;`,
+})
+export class StaticMap {
+  @Input()
+  item: Country;
+}</code></pre>
+        </section>
+        <section data-transition="none">
+            <img style="border: none; box-shadow: none" src="img/30.png" alt="">
+        </section>
+        <section>
+            <pre><code class="line-numbers" data-noescape>&lt;tab-bar [data]=&quot;list&quot;(onTabSelect)=&quot;select($event)&quot;&gt;&lt;/tab-bar&gt;</code></pre>
+        </section>
+        <section>
+            <pre><code class="line-numbers" data-noescape>export class TabBar {
+    ...
+    @Output();
+    onTabSelect: EventEmitter&lt;Country&gt;;
+    ...
+    onClick(tab:Country) {
+      this.active = tab;
+      this.onTabSelect.emit(tab);
+    }
+  }
+}</code></pre>
+        </section>
+        <section style="text-align: left;">
+            <p>Вниз - @Input</p>
+            <p>Вверх - @Output</p>
+        </section>
+        <section>
+            <p>Для обновления можно исполозовать RxJS или что-то самописное!</p>
+        </section>
+        <section>
+            <h2>Языки программирования</h2>
+        </section>
+        <section data-transition="none" style="text-align: left">
+            <p>
+                <b>
+                    Было:
+                </b>
+                ES5, Dart
+            </p>
+            <p>
+                <b>
+                    Cтало:
+                </b>
+                ES6, ES5, Typescript, Dart
+            </p>
+        </section>
+        <section data-transition="none" style="text-align: left">
+            <p>
+                <b>
+                    Было:
+                </b>
+                ES5, Dart
+            </p>
+            <p>
+                <b>
+                    Cтало:
+                </b>
+                ES6, ES5,
+                <b>Typescript</b>
+                , <b>Dart</b>
+            </p>
+        </section>
+        <section data-transition="none" style="text-align: left">
+            <p>
+                У нас появилась <b>опциональная</b> типизация
+            </p>
+        </section>
+        <section>
+            <p>Зачем мне типизация!?</p>
+            <ul style="text-align: left; display: block">
+                <li class="fragment">поддержка IDE</li>
+                <li class="fragment">опыт из других языков</li>
+                <li class="fragment">ошибки на этапе компиляции</li>
+            </ul>
+            <p class="fragment">Типизация на уровне фреймворка</p>
+        </section>
+        <section>
+            <p>Типизированные компоненты</p>
+            <pre><code class="line-numbers" data-noescape>@Component({
+  selector: 'countdown-parent-vc',
+  template: `&lt;countdown-timer&gt;&lt;/countdown-timer&gt;`,
+})
+export class CountdownComponent {
+  @ViewChild(CountdownTimerComponent)
+  private timerComponent: CountdownTimerComponent;
+
+            ...
+}
+            </code></pre>
+            <p class="fragment">Можно вызывать методы прямо у таймера из кода класса</p>
+        </section>
+        <!--<section>-->
+        <!--<h2>Шаблоны</h2>-->
+        <!--</section>-->
+        <!--<section>-->
+        <!--<p>-->
+        <!--Angular1-->
+        <!--</p>-->
+        <!--<pre><code class="line-numbers" data-noescape>Your favorite hero is: {{vm.favoriteHero}}</code></pre>-->
+
+        <!--<div class="fragment">-->
+        <!--<p>Angular2</p>-->
+        <!--<pre><code class="line-numbers" data-noescape>Your favorite hero is: {{favoriteHero}}</code></pre>-->
+        <!--</div>-->
+        <!--</section>-->
+        <section>
+            <p>Angular1 &mdash; filters</p>
+            <pre><code class="line-numbers" data-noescape>{{movie.title | uppercase}}</code></pre>
+            <div class="fragment">
+                <p>Angular2 &mdash; pipes</p>
+                <pre><code class="line-numbers" data-noescape>{{movie.title | uppercase}}</code></pre>
+            </div>
+        </section>
+        <section>
+            <p>Angular1</p>
+            <pre><code class="line-numbers"
+                       data-noescape>&lt;input ng-model=&quot;vm.favoriteHero&quot;/&gt;</code></pre>
+            <div class="fragment">
+                <p>Angular2 &mdash; pipes</p>
+                <pre><code class="line-numbers"
+                           data-noescape>&lt;input [(ngModel)]=&quot;favoriteHero&quot; /&gt;</code></pre>
+            </div>
+        </section>
+        <section>
+            <p>Angular1</p>
+            <pre><code class="line-numbers" data-noescape>&lt;div ng-class=&quot;{active: isActive,
+                   shazam: isImportant}&quot;&gt;</code></pre>
+            <div class="fragment">
+                <p>Angular2</p>
+                <pre><code class="line-numbers" data-noescape>&lt;div [ngClass]=&quot;{active: isActive,
+                 shazam: isImportant}&quot;&gt;
+&lt;div [class.active]=&quot;isActive&quot;&gt;</code></pre>
+            </div>
+        </section>
+        <section>
+                <pre><code class="line-numbers" data-noescape>export class Widget {
+    constructor() {
+      this.api = new APIWrapper();
+    }
+}</code></pre>
+        </section>
+        <section>
+                <pre><code class="line-numbers" data-noescape>export class Widget {
+    constructor() {
+      this.api = new APIWrapper(this.key);
+    }
+}</code></pre>
+        </section>
+        <section>
+            <p>Искать по всему коду?</p>
+        </section>
+        <section>
+            <h2>
+                Инверсия управления (Inversion of Control, IoC)
+            </h2>
+            <ul>
+                <li class="fragment">Factory pattern</li>
+                <li class="fragment">Service locator</li>
+                <li class="fragment">Dependency injection</li>
+            </ul>
+        </section>
+        <section>
+            <h2>
+                Сервис локатор
+            </h2>
+            <pre><code class="line-numbers" data-noescape>angular.module('myModule', [])
+.factory('serviceId', ['depService', function(depService) {
+  // ...
+}])</code></pre>
+        </section>
+        <section>
+            <h2>
+                Dependency injection
+            </h2>
+            <pre><code class="line-numbers" data-noescape>interface API {
+    url:string;
+}
+
+
+@Injectable()
+class APIImpl implements API {
+    url: string;
+}</code></pre>
+        </section>
+        <section>
+            <pre><code class="line-numbers" data-noescape>@NgModule({
+    providers: [{ provide: API, useClass: APIImpl }],
+    bootstrap: [Widget]
+})
+export class AppModule { }
+
+
+
+@Component({
+    selector: 'my-heroes',
+    providers: [API],
+})
+export class Widget { }</code></pre>
+        </section>
+        <section>
+            <ul>
+                <li class="fragment">Удобно для тестирования</li>
+                <li class="fragment">Удобно для разработки</li>
+            </ul>
+        </section>
+        <section>
+            <p>
+                Shadow DOM
+            </p>
+        </section>
+        <section>
+            <p>
+                Эмуляция Shadow DOM
+            </p>
+            <pre><code class="line-numbers" data-noescape>[_nghost-pmm-5] {
+  display: block;
+  border: 1px solid black;
+}
+
+h3[_ngcontent-pmm-6] {
+  background-color: white;
+  border: 1px solid #777;
+}</code></pre>
+        </section>
+        <section>
+            <p>Изолирование стилей можно отключить</p>
+        </section>
+        <section>
+            <p>
+                Спасибо за внимание!
+            </p>
+        </section>
+    </div>
+</div>
+
+<script src="lib/js/head.min.js"></script>
+<script src="js/reveal.js"></script>
+
+<script>
+    // More info https://github.com/hakimel/reveal.js#configuration
+    Reveal.initialize({
+        history: true,
+
+        // More info https://github.com/hakimel/reveal.js#dependencies
+        dependencies: [
+//            {src: 'plugin/markdown/marked.js'},
+//            {src: 'plugin/markdown/markdown.js'},
+            {src: 'plugin/print-pdf/print-pdf.js'},
+            {src: 'plugin/notes/notes.js', async: true},
+            {src: 'plugin/line-numbers/line-numbers.js'},
+            {
+                src: 'plugin/highlight/highlight.js', async: true, callback: function () {
+                hljs.initHighlightingOnLoad();
+            }
+            }
+        ]
+    });
+</script>
+</body>
+</html>

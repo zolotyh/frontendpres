@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="696px" height="392px" viewBox="0 0 696 392" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 41 (35326) - http://www.bohemiancoding.com/sketch -->
+    <title>Group 4</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group-4">
+            <rect id="Rectangle" fill="#FFFFFF" x="0" y="0" width="696" height="392"></rect>
+            <g id="Group-3" transform="translate(115.000000, 98.000000)">
+                <g id="Group" transform="translate(23.737288, 0.000000)">
+                    <polygon id="polygon50" fill="#B3B3B3" points="11.5432203 117.212712 70.6194915 149.682203 130 116.772881 141.069492 24.9661017 70.5449153 0.741525424 0.469491525 25.4025424"></polygon>
+                    <polygon id="polygon52" fill="#A6120D" points="70.3813559 141.924576 123.763559 112.380508 134.079661 30.2720339 70.3813559 8.55"></polygon>
+                    <polygon id="polygon54" fill="#DD1B16" points="70.3805085 141.924576 70.3805085 8.54745763 8.33305085 30.6635593 17.8220339 112.772881"></polygon>
+                    <path d="M87.9152542,79.5516949 L70.3813559,87.7508475 L51.9008475,87.7508475 L43.2135593,109.479661 L27.0550847,109.778814 L70.3813559,13.3932203 L87.9152542,79.5516949 Z M86.220339,75.4237288 L70.4974576,44.2974576 L57.6008475,74.8881356 L70.3805085,74.8881356 L86.220339,75.4237288 Z" id="path56" fill="#F2F2F2"></path>
+                    <polygon id="polygon58" fill="#B3B3B3" points="85.1305085 74.9118644 70.4135593 74.9118644 70.3805085 87.7313559 90.7305085 87.7508475 100.241525 109.782203 115.702542 110.068644 70.3805085 13.3932203 70.4966102 44.2974576"></polygon>
+                </g>
+                <text id="AngularJS-1.*" font-family="OpenSans-Semibold, Open Sans" font-size="30" font-weight="500" fill="#333333">
+                    <tspan x="0.317871094" y="188">AngularJS 1.*</tspan>
+                </text>
+            </g>
+            <g id="Group-2" transform="translate(406.000000, 98.000000)">
+                <g id="3" transform="translate(11.000000, 0.000000)">
+                    <g id="Layer_1">
+                        <g id="Group">
+                            <polygon id="Shape" fill="#DD0031" points="70.5 0 70.5 0 70.5 0 0.675 24.9 11.325 117.225 70.5 150 70.5 150 70.5 150 129.675 117.225 140.325 24.9"></polygon>
+                            <polygon id="Shape" fill="#C3002F" points="70.5 0 70.5 16.65 70.5 16.575 70.5 92.55 70.5 92.55 70.5 150 70.5 150 129.675 117.225 140.325 24.9"></polygon>
+                            <path d="M70.5,16.575 L26.85,114.45 L26.85,114.45 L43.125,114.45 L43.125,114.45 L51.9,92.55 L88.95,92.55 L97.725,114.45 L97.725,114.45 L114,114.45 L114,114.45 L70.5,16.575 L70.5,16.575 L70.5,16.575 L70.5,16.575 L70.5,16.575 Z M83.25,79.05 L57.75,79.05 L70.5,48.375 L83.25,79.05 Z" id="Shape" fill="#FFFFFF"></path>
+                        </g>
+                    </g>
+                </g>
+                <text id="Angular-2.*" font-family="OpenSans-Semibold, Open Sans" font-size="30" font-weight="500" fill="#333333">
+                    <tspan x="0.0473632812" y="188">Angular 2.*</tspan>
+                </text>
+            </g>
+            <text id="vs" font-family="OpenSans-Semibold, Open Sans" font-size="36" font-weight="500" fill="#333333">
+                <tspan x="330.104492" y="206">vs</tspan>
+            </text>
+        </g>
+    </g>
+</svg>

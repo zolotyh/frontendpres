@@ -1,0 +1,90 @@
+{
+  "_args": [
+    [
+      {
+        "raw": "highlightjs-line-numbers.js",
+        "scope": null,
+        "escapedName": "highlightjs-line-numbers.js",
+        "name": "highlightjs-line-numbers.js",
+        "rawSpec": "",
+        "spec": "latest",
+        "type": "tag"
+      },
+      "/Users/alexey.zolotykh/work/frontendconf"
+    ]
+  ],
+  "_from": "highlightjs-line-numbers.js@latest",
+  "_id": "highlightjs-line-numbers.js@1.1.0",
+  "_inCache": true,
+  "_installable": true,
+  "_location": "/highlightjs-line-numbers.js",
+  "_nodeVersion": "5.0.0",
+  "_npmOperationalInternal": {
+    "host": "packages-6-west.internal.npmjs.com",
+    "tmp": "tmp/highlightjs-line-numbers.js-1.1.0.tgz_1456517616524_0.7157782544381917"
+  },
+  "_npmUser": {
+    "name": "wcoder",
+    "email": "evgeniy.pakalo@gmail.com"
+  },
+  "_npmVersion": "3.5.3",
+  "_phantomChildren": {},
+  "_requested": {
+    "raw": "highlightjs-line-numbers.js",
+    "scope": null,
+    "escapedName": "highlightjs-line-numbers.js",
+    "name": "highlightjs-line-numbers.js",
+    "rawSpec": "",
+    "spec": "latest",
+    "type": "tag"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/highlightjs-line-numbers.js/-/highlightjs-line-numbers.js-1.1.0.tgz",
+  "_shasum": "b69c8eec45043f1e88a97c68071f779a0d71763c",
+  "_shrinkwrap": null,
+  "_spec": "highlightjs-line-numbers.js",
+  "_where": "/Users/alexey.zolotykh/work/frontendconf",
+  "author": {
+    "name": "Yauheni Pakala",
+    "email": "evgeniy.pakalo@gmail.com"
+  },
+  "bugs": {
+    "url": "https://github.com/wcoder/highlightjs-line-numbers.js/issues"
+  },
+  "dependencies": {},
+  "description": "Highlight.js line numbers plugin.",
+  "devDependencies": {
+    "gulp": "^3.8.11",
+    "gulp-rename": "^1.2.2",
+    "gulp-uglify": "^1.2.0"
+  },
+  "directories": {},
+  "dist": {
+    "shasum": "b69c8eec45043f1e88a97c68071f779a0d71763c",
+    "tarball": "https://registry.npmjs.org/highlightjs-line-numbers.js/-/highlightjs-line-numbers.js-1.1.0.tgz"
+  },
+  "gitHead": "447f9a2f9bf2c7e11f7e52b034d08fe0cec1023f",
+  "homepage": "https://github.com/wcoder/highlightjs-line-numbers.js",
+  "license": "MIT",
+  "main": "gulpfile.js",
+  "maintainers": [
+    {
+      "name": "wcoder",
+      "email": "evgeniy.pakalo@gmail.com"
+    }
+  ],
+  "name": "highlightjs-line-numbers.js",
+  "optionalDependencies": {},
+  "readme": "ERROR: No README data found!",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wcoder/highlightjs-line-numbers.js.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "version": "1.1.0"
+}
